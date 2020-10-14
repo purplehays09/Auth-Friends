@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import Friend from './Friend'
+import FriendForm from './FriendForm'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 export default function Friends(){
@@ -36,6 +37,8 @@ export default function Friends(){
                     )
                 })
             }
+
+            <FriendForm/>
         </div>
     )
 }
