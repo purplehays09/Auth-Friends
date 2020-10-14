@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 
 const initialState = {
     username:'',
-    passowrd:''
+    password:''
 }
 
 export default function Login(){
@@ -20,7 +21,13 @@ export default function Login(){
     const handleSubmit = e => {
         e.preventDefault()
 
-        console.log('WE DID IT')
+        axios.post('http://localhost:5000/api/login',credentials)
+        .then(res => {
+            window.localStorage.setItem("token", res.data.payload);
+            console.log(res)
+        })
+        .catch(err => console.log(err))
+        console.log(credentials)
     }
 
     return (
